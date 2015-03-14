@@ -1,0 +1,24 @@
+# Introduction #
+The windows build of PoolViewer uses Qt4 and libusb1.0. If you wish to build from source you will need to install these first.
+
+To run the pre-built binary the required libraries are included in the zip file, no application installation is necessary just copy the files to a directory and run the poolview.exe.
+
+You have the choice of either using your current PoolMate device driver to download your workouts or using the sync functionality built into the PoolViewer application.
+
+# USB device #
+If you have the PoolMate software and USB driver installed you can keep using the same driver to connect to your watch and download workouts.
+PoolViewer supports the file formats created by the Swimovate software, you should use the "Import CSV" option in the download form to access the files saved by your installed poolmate software.
+
+Alternatively if you want to use the watch sync built into the PoolViewer application then you need to install the libusb windows driver.
+
+This can be installed to override the current PoolMate driver and removed later if you want to revert to the bundled software.
+
+To use the inbuilt USB sync you will need to install the [Zadig](https://sourceforge.net/projects/libwdi/files/zadig/) driver and select the WinUSB driver option when it detects your poolmate device.
+
+# Installing Zadig driver #
+  * Run the Zadig utility, if you already have the poolmate driver installed you will need to select view all devices http://poolviewer.googlecode.com/svn/wiki/images/zadig1.PNG
+  * Next select the PoolMate USB pod and replace driver with WinUSB Selected. http://poolviewer.googlecode.com/svn/wiki/images/zadig2.PNG
+  * If you wish to return to the original driver, re-run zadig and select the libusb1.2.5 driver http://poolviewer.googlecode.com/svn/wiki/images/zadig3.PNG
+
+# Tips #
+The windows sync seems slightly temperamental at the moment, if the sync dialog displays an error message at the end of transfer, **click cancel**. It's likely that the transfer succeeded and you should still be able to display the downloaded workouts.

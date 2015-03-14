@@ -1,0 +1,8 @@
+# To do #
+  * Yards vs metres support
+  * Report printing
+  * Multiple user support
+  * Build updated windows version
+  * Install menu and .desktop links on Linux
+  * Graph scrolling and zooming
+  * Make GUI controls dockable/draggable
