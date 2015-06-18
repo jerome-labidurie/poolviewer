@@ -1,0 +1,15 @@
+How-To translate poolviewer to a new language
+
+Edit poolview.pro to add a new ts file to TRANSLATION line.
+
+lupdate poolview.pro
+
+Open linguist and load the .ts file
+
+Translate
+
+lrelease poolview.pro
+
+copy produced poolviewer_xx.qm to 
+* launch directory
+* system wide dir ???

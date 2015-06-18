@@ -46,3 +46,5 @@ HEADERS = src/uploadimpl.h src/syncimpl.h src/configimpl.h src/summaryimpl.h src
     src/logging.h
 SOURCES = src/uploadimpl.cpp src/syncimpl.cpp src/configimpl.cpp src/summaryimpl.cpp src/main.cpp src/graphwidget.cpp src/datastore.cpp src/poolmate.c src/calendar.cpp \
     src/usblink.cpp
+TRANSLATIONS = tr/poolviewer_fr.ts
+

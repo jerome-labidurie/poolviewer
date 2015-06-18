@@ -17,6 +17,8 @@
  */
 #include <QApplication>
 #include <QSettings>
+#include <QTranslator>
+#include <QLibraryInfo>
 
 #include "summaryimpl.h"
 #include "datastore.h"
@@ -26,6 +28,9 @@
 
 int main(int argc, char ** argv)
 {
+    QString locale = QLocale::system().name();
+//     printf("locale:%s\n",locale.toLocal8Bit().data());
+
     QSettings settings("Swim","Poolmate");
 
     // Do we have a datafile?
@@ -43,16 +48,25 @@ int main(int argc, char ** argv)
     d->setFile(path);
     d->load();
 
-	QApplication app( argc, argv );
-	
-	SummaryImpl win;
-	win.setDataStore( d );
+    QApplication app( argc, argv );
+ 
+    QTranslator qtTranslator;
+    qtTranslator.load("qt_" + locale,
+            QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    app.installTranslator(&qtTranslator);
+    
+    QTranslator translator;
+    translator.load(QString("poolviewer_") + locale);
+    app.installTranslator(&translator);
+
+    SummaryImpl win;
+    win.setDataStore( d );
 
     //TODO tidy this!, for now refill grid and data from datastore.
     win.fillWorkouts(d->Workouts());
+ 
+    win.show();
+    app.connect( &app, SIGNAL( lastWindowClosed() ), &app, SLOT( quit() ) );
 
-	win.show();
-	app.connect( &app, SIGNAL( lastWindowClosed() ), &app, SLOT( quit() ) );
-
-	return app.exec();
+    return app.exec();
 }

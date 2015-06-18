@@ -446,7 +446,7 @@ void SummaryImpl::workoutSelected()
     lengthWidget->update();
 
     setSel = false;
-    deleteButton->setText("Delete wrk");
+    deleteButton->setText(tr("Delete wrk"));
 }
 
 void SummaryImpl::syncButton()
